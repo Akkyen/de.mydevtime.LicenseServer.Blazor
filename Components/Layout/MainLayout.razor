@@ -1,0 +1,34 @@
+﻿@using de.mydevtime.LicenseServer.Blazor.Resources.Pages
+@inherits LayoutComponentBase
+
+<PageTitle>My Radzen Blazor App</PageTitle>
+
+<RadzenLayout>
+    <RadzenHeader>
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+            <RadzenSidebarToggle Click="@(() => sidebar1Expanded = !sidebar1Expanded)" />
+        </RadzenStack>
+    </RadzenHeader>
+    <RadzenSidebar @bind-Expanded="@sidebar1Expanded">
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Dashboard" Icon="home" Path="/"/>
+            <RadzenPanelMenuItem Text="Users" Icon="account_box" Path="/users"/>
+            <RadzenPanelMenuItem Text="Licenses" Icon="key" Path="/licenses"/>
+            <RadzenPanelMenuItem Text="Settings" Icon="settings" Path="/settings"/>
+        </RadzenPanelMenu>
+    </RadzenSidebar>
+    <RadzenBody>
+        <div class="rz-p-4">
+            @Body
+        </div>
+    </RadzenBody>
+    <RadzenFooter>
+        Footer
+    </RadzenFooter>
+</RadzenLayout>
+
+@code {
+    bool sidebar1Expanded = true;
+
+    Layout layout = new Layout();
+}

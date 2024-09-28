@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>default</LangVersion>
+        <Company>MyDevTime</Company>
+        <Authors>Benedikt Papiorek</Authors>
+        <Version>0.2</Version>
+        <Title>MyDevTime LicenseServer Blazor</Title>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="Radzen.Blazor" Version="5.1.10" />
+      <PackageReference Include="Weikio.PluginFramework" Version="1.5.1" />
+      <PackageReference Include="Weikio.PluginFramework.AspNetCore" Version="1.5.1" />
+      <PackageReference Include="Weikio.PluginFramework.Catalogs.NuGet" Version="1.5.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Pages\Layout.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Layout.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Pages\Dashboard.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Dashboard.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Pages\Licenses.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Licenses.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Pages\Users.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Users.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Pages\Settings.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Pages\Layout.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Layout.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Pages\Dashboard.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Dashboard.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Pages\Licenses.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Licenses.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Pages\Users.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Users.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Pages\Settings.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Settings.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\de.mydevtime.License\de.mydevtime.License.csproj" />
+    </ItemGroup>
+
+</Project>

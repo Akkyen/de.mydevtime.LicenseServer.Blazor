@@ -1,0 +1,33 @@
+@page "/Licenses"
+@using de.mydevtime.License.Model
+
+<RadzenStack Orientation="Orientation.Vertical">
+    <RadzenStack Orientation="Orientation.Horizontal">
+        <RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                        Data="@licenses" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or" SelectionMode="DataGridSelectionMode.Single" @bind-Value=@selectedLicenses>
+            <Columns>
+                <RadzenDataGridColumn Property="@nameof(License.LicenseId)" Filterable="false" Title="License ID" Width="160px" TextAlign="TextAlign.Center" />
+                <RadzenDataGridColumn Property="@nameof(License.DisplayName)" Title="License Name" Width="160px" TextAlign="TextAlign.Center"/>
+                <RadzenDataGridColumn Property="@nameof(License.Description)" Title="Description" Width="200px"/>
+                <RadzenDataGridColumn Property="@nameof(License.ExpirationDate)" Title="" Frozen="true" Width="160px"/>
+                <!-- <RadzenDataGridColumn Property="@nameof(License.)" Title="Last Name" Width="160px"/> -->
+                <RadzenDataGridColumn Property="@nameof(License.Features)" Title="Features" Width="200px"/>
+                <RadzenDataGridColumn Property="@nameof(License.Extensions)" Title="Title" Width="200px"/>
+            </Columns>
+        </RadzenDataGrid>
+    </RadzenStack>
+</RadzenStack>
+
+@code {
+    IQueryable<License> licenses;
+    IList<License> selectedLicenses;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+ 
+        //licenses = dbContext.Licenses;
+
+        selectedLicenses = new List<License>(){ licenses.FirstOrDefault() };
+    }
+}
